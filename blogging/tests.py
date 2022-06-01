@@ -7,7 +7,9 @@ from blogging.models import Post, Category
 
 # Create your tests here.
 class PostTestCase(TestCase):
-    fixtures = ["blogging_test_fixture.json", ]
+    fixtures = [
+        "blogging_test_fixture.json",
+    ]
 
     def setUp(self):
         self.user = User.objects.get(pk=1)
@@ -18,6 +20,7 @@ class PostTestCase(TestCase):
         actual = str(p1)
         self.assertEqual(expected, actual)
 
+
 class FrontEndTestcase(TestCase):
     fixtures = ["blogging_test_fixture.json"]
 
@@ -27,9 +30,7 @@ class FrontEndTestcase(TestCase):
         author = User.objects.get(pk=1)
 
         for count in range(1, 11):
-            post = Post(title="Post %d Title" % count,
-                        text="foo",
-                        author=author)
+            post = Post(title="Post %d Title" % count, text="foo", author=author)
 
             if count < 6:
                 pubdate = self.now - self.timedelta * count
@@ -43,10 +44,11 @@ class FrontEndTestcase(TestCase):
         for count in range(1, 11):
             title = "Post %d Title" % count
             if count < 6:
-                self.assertContains(resp,
-                                    title,
-                                    # count=1
-                                    )
+                self.assertContains(
+                    resp,
+                    title,
+                    # count=1
+                )
             else:
                 self.assertNotContains(resp, title)
 
@@ -63,7 +65,6 @@ class FrontEndTestcase(TestCase):
 
 
 class CategoryTestCase(TestCase):
-
     def test_string_representation(self):
         expected = "A Category"
         c1 = Category(name=expected)

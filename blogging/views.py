@@ -4,7 +4,9 @@ from django.views.generic.detail import DetailView
 
 
 class PostListView(ListView):
-    queryset = Post.objects.exclude(published_date__exact=None).order_by("-published_date")
+    queryset = Post.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
     template_name = "blogging/list.html"
 
 
