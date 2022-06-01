@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField(blank=True)
@@ -27,4 +28,3 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-
