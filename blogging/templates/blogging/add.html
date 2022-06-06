@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<a class="backlink" href="/">Home</a>
+<h1>Add a post</h1>
+
+<form method="post">
+{% csrf_token %}
+
+{{form.as_p}}
+
+<!--{{ form.title.label }}: {{form.title}}
+<p>
+{{ form.text.label }}: {{ form.text }}
+</p>
+{{ form.author.label }}: {{ form.author }} -->
+
+<button type = "submit" class="btn btn-default"&gt;>Submit</button>
+</form>
+{% endblock %}
