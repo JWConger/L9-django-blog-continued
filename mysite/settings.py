@@ -38,9 +38,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "polling",
     "blogging",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ],
+    "DATETIME_FORMAT": "%Y-%m-%d_%H:%M:%S",
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    # "PAGE_SIZE": 3
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
